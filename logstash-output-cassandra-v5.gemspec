@@ -1,13 +1,13 @@
 Gem::Specification.new do |s|
 
-  s.name            = 'logstash-output-cassandra'
-  s.version         = '5.0.0'
+  s.name            = 'logstash-output-cassandra-v5'
+  s.version         = '1.0.0'
   s.licenses        = [ 'Apache License (2.0)' ]
   s.summary         = 'Store events into Cassandra'
   s.description     = 'This gem is a logstash plugin required to be installed on top of the Logstash core pipeline using $LS_HOME/bin/plugin install gemname. This gem is not a stand-alone program'
-  s.authors         = [ 'PerimeterX' ]
-  s.email           = [ 'elad@perimeterx.com' ]
-  s.homepage        = 'https://github.com/PerimeterX/logstash-output-cassandra'
+  s.authors         = [ 'updated by Luis Burbano','forked from PerimeterX code' ]
+  s.email           = [ 'lburbanoulloa@gmail.com' ]
+  s.homepage        = 'https://github.com/lburbanoulloa/logstash-output-cassandra-v5'
   s.require_paths   = [ 'lib' ]
 
   # Files

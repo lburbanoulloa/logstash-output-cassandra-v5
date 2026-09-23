@@ -1,10 +1,12 @@
-# Logstash Cassandra Output Plugin
+# Logstash Cassandra Output Plugin v5
 
 This is a plugin for [Logstash](https://github.com/elastic/logstash).
 
 It is fully free and fully open source. The license is Apache 2.0, meaning you are pretty much free to use it however you want in whatever way.
 
-It was originally a fork of the [logstash-output-cassandra](https://github.com/otokarev/logstash-output-cassandra) plugin by [Oleg Tokarev](https://github.com/otokarev), which has gone unmaintained and went through a major re-design in this version we built.
+It was originally a fork of the [logstash-output-cassandra](https://github.com/PerimeterX/logstash-output-cassandra
+
+This version update the plugin to work with Cassandra v5, and fix an error when inserting UUId fields.
 
 ## Usage
 
@@ -108,7 +110,7 @@ output {
 
 Edit Logstash Gemfile and add the local plugin path, for example:
 ```
-gem "logstash-output-cassandra", :path => "/your/local/logstash-output-cassandra"
+gem "logstash-output-cassandra-v5", :path => "/your/local/logstash-output-cassandra-v5"
 ```
 And install by executing:
 ```
@@ -117,7 +119,7 @@ bin/plugin install --no-verify
 
 Or install plugin from RubyGems:
 ```
-bin/plugin install logstash-output-cassandra
+bin/plugin install logstash-output-cassandra-v5
 ```
 
 And then run Logstash with the plugin:
@@ -131,23 +133,14 @@ You can use the same method to run your plugin in an installed Logstash by editi
 
 Build your plugin gem
 ```
-gem build logstash-output-cassandra.gemspec
+gem build logstash-output-cassandra-v5.gemspec
 ```
 Install the plugin from the Logstash home
 ```
-bin/plugin install /your/local/plugin/logstash-output-cassandra.gem
+bin/plugin install /your/local/plugin/logstash-output-cassandra-v5.gem
 ```
 Run Logstash with the plugin
 ```
 bin/logstash -e 'output {cassandra {}}'
 ```
 
-## TODO
-* Finish integration specs
-    * it "properly works with counter columns"
-    * it "properly adds multiple events to multiple tables in the same bulk"
-* Improve retries to include (but probably only handle Errors::Timeout and Errors::NoHostsAvailable):
-    * \#get_query
-    * \#execute_async
-* Upgrade / test with logstash 2.3
-* Upgrade / test with cassandra 3
